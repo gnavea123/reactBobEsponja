@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import Wrapper from "./components/Wrapper";
+import Title from "./components/Title";
+// import SpongeBobCard from "./components/SpongeBobCard";
+// import SquidwardCard from "./components/SquidwardCard";
+// import MrKrabsCard from "./components/MrKrabsCard";
+import friends from "./friends.json";
+import FriendCard from "./components/FriendCard";
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  console.log("friends value:");
+  console.log(friends);
+  console.log("friends name:");
+  console.log(friends[0].name);
+  console.log("friends image:");
+  console.log(friends[1].image);
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Wrapper>
+      <Title>Friends List</Title>    
+      <FriendCard name={friends[0].name} image={friends[0].image} occupation={friends[0].occupation} location={friends[0].location}/>
+      <FriendCard name={friends[1].name} image={friends[1].image} occupation={friends[1].occupation} location={friends[1].location}/>
+      <FriendCard name={friends[2].name} image={friends[2].image} occupation={friends[2].occupation} location={friends[2].location}/>
+    </Wrapper>
+
+  );
 }
 
-export default App
+export default App;
